@@ -288,15 +288,18 @@ Vue.component('mod-keys', {
         },
         onTouchStart(e, el) {
             Event.$emit('writeRevision', 'Touch');
-            this.$root.gesture = `Touch Start: [${this.mouseX}, ${this.mouseY}]`
+            this.$root.gesture = `${e.touches.length} Touch: [${Math.round(e.touches[0].screenX)}, ${Math.round(e.touches[0].screenX)}]`
         },
         onTouchEnd(e, el) {
             Event.$emit('writeRevision', 'Touch');
-            this.$root.gesture = `Touch End: [${this.mouseX}, ${this.mouseY}]`
+            this.$root.gesture = `Touch End: [${Math.round(e.touches[0].screenX)}, ${Math.round(e.touches[0].screenX)}]`
         },
         onTouchMove(e, el) {
             Event.$emit('writeRevision', 'Touch');
-            this.$root.gesture = `Touch Move: [${this.mouseX}, ${this.mouseY}]`
+            console.log(e);
+            this.mouseX = e.clientX, this.mouseY = e.clientY;
+
+            this.$root.gesture = `Touch Move: [${Math.round(e.touches[0].screenX)}, ${Math.round(e.touches[0].screenX)}]`
         },
         onTouchCancel(e, el) {
             Event.$emit('writeRevision', 'Touch');

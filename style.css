@@ -199,12 +199,15 @@ svg { width: 100%; }
 }
 
 @media screen and (max-width:768px) {
+  .grid {
+    font-size: 5rem;
+  },
   .revision-title, .revision-input {
     font-size: 1rem;
-  }
+  },
   .title, .browser {
-    font-size: 2rem;
-  }
+    font-size: 1.25rem;
+  },
 }
 
 @media screen and (orientation:portrait) {
